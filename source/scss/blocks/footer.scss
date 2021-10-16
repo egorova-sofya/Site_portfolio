@@ -1,0 +1,45 @@
+.footer {
+  background-color: $primary;
+  color: #fff;
+}
+
+.footer_wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.footer_social-list {
+  padding-top: 68px;
+  margin-bottom: 32px;
+}
+
+.footer_social-list .socials-item {
+  width: 60px;
+  height: 60px;
+}
+
+.footer-resume-wrapper {
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.footer_resume,
+.footer_link {
+  display: inline-block;
+  font-size: 32px;
+  line-height: 24px;
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.footer_link {
+  padding-bottom: 4px;
+  color: $primary_light;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 2px solid $primary_light;
+    box-shadow: 0 6px 6px -6px $primary_light;
+  }
+}

@@ -1,0 +1,25 @@
+.button {
+  padding: 20px 36px;
+  border: none;
+  border-color: $primary;
+
+  border-radius: 16px;
+  background-color: $primary;
+  cursor: pointer;
+
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+
+  &:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease-out;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 90%;
+    &:hover {
+      transform: none;
+    }
+  }
+}

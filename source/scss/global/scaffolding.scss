@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: $text_color;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  border: 0;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+.title {
+  margin: 0;
+  font-size: 36px;
+  line-height: 24px;
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 400;
+  color: $text_color;
+  font-style: normal;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 960px) {
+    font-size: 28px;
+  }
+}
