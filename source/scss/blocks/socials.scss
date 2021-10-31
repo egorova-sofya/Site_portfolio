@@ -13,27 +13,16 @@
   height: 32px;
   cursor: pointer;
   background-position: 50% 50%;
-  // &:hover {
-  //   transform: scale(1.03);
-  //   transition: all 0.3s ease-out;
-  // }
-
-  // @media screen and (max-width: 960px) {
-  //   width: 90%;
-  //   &:hover {
-  //     transform: none;
-  //   }
-  // }
 }
 
 .social-vk {
-  background: no-repeat url("../source/img/vk.svg");
+  background: no-repeat url("./assets/img/vk.svg");
 }
 
 .social-twitter {
-  background: no-repeat url("../source/img/twitter.svg");
+  background: no-repeat url("./assets/img/twitter.svg");
 }
 
 .social-linkedin {
-  background: no-repeat url("../source/img/linkedin.svg");
+  background: no-repeat url("./assets/img/linkedin.svg");
 }

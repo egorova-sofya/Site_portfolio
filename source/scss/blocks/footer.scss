@@ -11,6 +11,9 @@
 .footer_social-list {
   padding-top: 68px;
   margin-bottom: 32px;
+  @media screen and (max-width: 480px) {
+    padding-top: 52px;
+  }
 }
 
 .footer_social-list .socials-item {

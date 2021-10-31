@@ -8,6 +8,12 @@ body {
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -40,4 +46,15 @@ img {
   @media screen and (max-width: 960px) {
     font-size: 28px;
   }
+}
+
+.status {
+  position: absolute;
+  top: 105%;
+  color: $primary;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70px;
+  width: 100%;
+  font-weight: bold;
 }

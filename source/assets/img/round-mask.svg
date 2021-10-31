@@ -1,0 +1,14 @@
+   <svg viewBox="0 0 1 1" width="500" height="366">
+          <defs>
+            <clipPath clipPath="objectBoundingBox" id="round">
+              <path
+                d="
+        M 200, 200
+        m -120, -30
+        a 75,75 0 1,0 366,0
+        a 75,75 0 1,0 -366,0
+        "
+              />
+            </clipPath>
+          </defs>
+        </svg>

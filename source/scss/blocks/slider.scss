@@ -1,109 +1,185 @@
 .slider {
   max-width: 1170px;
-  display: grid;
-  grid-template-rows: 100px 1fr;
   margin: 0 auto;
   padding: 0 30px;
-  margin-bottom: 52px;
-  padding-bottom: 10rem;
 
-  // @media screen and (max-width: 960px) {
-  //   margin-bottom: 52px;
-  // }
+  @media screen and (max-width: 960px) {
+    padding: 0 30px;
+    padding-bottom: 30px;
+  }
+
+  @include indent;
 }
 
 .slider_title {
-  // grid-column: 1/-1;
-  margin: auto;
-  margin-bottom: 44px;
-}
-
-.slider_wrapper {
-  display: grid;
-  grid-template-columns: 90px 1fr 90px;
-  column-gap: 60px;
-  margin: auto;
-  @media screen and (max-width: 960px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.slider_button {
-  position: relative;
-  height: 106px;
-  margin: auto;
-
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  @media screen and (max-width: 960px) {
-    display: none;
-  }
-}
-
-.slider_button--left {
-  &:hover {
-    animation: rightShift 0.4s linear;
-  }
-  @keyframes rightShift {
-    0% {
-      right: 0;
-    }
-
-    50% {
-      right: 5%;
-    }
-
-    100% {
-      right: 0%;
-    }
-  }
-}
-
-.slider_button--right {
-  &:hover {
-    animation: leftShift 0.4s linear;
-  }
-  @keyframes leftShift {
-    0% {
-      left: 0;
-    }
-
-    50% {
-      left: 5%;
-    }
-
-    100% {
-      left: 0%;
-    }
-  }
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 36px;
 }
 
 .slider_container {
-  height: auto;
-  width: 600px;
-  &:hover {
-    transform: scale(1.03);
-    transition: all 0.2s ease-out;
-    box-shadow: -15px 15px 30px -20px $primary_light;
-  }
-  @media screen and (max-width: 960px) {
-    width: 400px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  column-gap: 30px;
+  margin: auto;
 
-    &:hover {
-      transform: none;
-      box-shadow: none;
-    }
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
 .slider_item {
   line-height: 0;
+  position: relative;
 }
 
-// .slider_img {
-//   // object-fit: cover;
-//   width: 100%;
-//   height: 400px;
-// }
+.slide_skills--wrapper {
+  transition: opacity 0.3s ease-in-out;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    $text_color,
+    rgba(48, 19, 90, 0.8),
+    rgba(48, 19, 90, 0.5),
+    rgba(48, 19, 90, 0.1),
+    transparent,
+    transparent,
+    transparent
+  );
+  &:hover {
+    opacity: 0;
+  }
+}
+
+.slider_skills-list {
+  position: absolute;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  flex-wrap: wrap;
+  bottom: 10px;
+  width: 80%;
+  right: 10%;
+  height: 25%;
+
+  margin: 0;
+  padding: 0;
+}
+
+.slider_skills-item {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin: 0 15px;
+  &::marker {
+    color: $primary_light;
+  }
+  @media screen and (max-width: 960px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+.slider_img {
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
+  @media screen and (max-width: 960px) {
+    height: 300px;
+  }
+  @media screen and (max-width: 480px) {
+    height: 240px;
+  }
+}
+
+.slider_button {
+  margin: auto 0;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and (max-width: 960px) {
+    position: absolute;
+    height: 30px;
+
+    display: block;
+
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px -7px #000000;
+  }
+}
+
+.slider_button img {
+  height: 98px;
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-out;
+  }
+  @media screen and (max-width: 960px) {
+    padding: 2px;
+    padding-top: 5px;
+
+    height: 36px;
+  }
+}
+
+.slider_button--left {
+  @media screen and (max-width: 960px) {
+    top: 50%;
+    left: calc(100% - (100% + 24px));
+    margin-top: -24px;
+
+    z-index: 9;
+  }
+}
+
+.slider_button--right {
+  @media screen and (max-width: 960px) {
+    top: 50%;
+    left: calc(100% - 24px);
+
+    margin-top: -24px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slideInLeft {
+  animation: slideInLeft 0.4s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideInRight {
+  animation: slideInRight 0.4s ease-in;
+}

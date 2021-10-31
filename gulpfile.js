@@ -1,48 +1,121 @@
-const { src, dest, watch, series } = require("gulp");
+"use strict";
+const gulp = require("gulp");
+
+const htmlmin = require("gulp-htmlmin");
+
 const sass = require("gulp-sass");
 const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+
 const terser = require("gulp-terser");
+const babel = require("gulp-babel");
+const webpack = require("webpack-stream");
+
 const browsersync = require("browser-sync").create();
+const sourcemaps = require("gulp-sourcemaps");
+const del = require("del");
+
+const dist = "./dist/";
+// const dist = "C:/OpenServer/domains/test";
+
+gulp.task("copy-html", () => {
+  return gulp
+    .src("source/*.html")
+    .pipe(
+      htmlmin({
+        removeComments: true,
+        collapseWhitespace: true,
+      })
+    )
+    .pipe(gulp.dest(dist))
+    .pipe(browsersync.stream());
+});
 
 // Sass Task
-function scssTask() {
-  return src("source/scss/style.scss", { sourcemaps: true })
-    .pipe(sass())
-    .pipe(postcss([cssnano()]))
-    .pipe(dest("dist", { sourcemaps: "." }));
-}
 
-// JavaScript Task
-function jsTask() {
-  return src("source/js/script.js", { sourcemaps: true })
-    .pipe(terser())
-    .pipe(dest("dist", { sourcemaps: "." }));
-}
+gulp.task("scss-task", () => {
+  return gulp
+    .src("source/scss/style.scss")
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(dist))
+    .pipe(browsersync.stream());
+});
+
+// Js Task
+
+gulp.task("js-task", () => {
+  return (
+    gulp
+      .src("source/js/main.js")
+      .pipe(sourcemaps.init())
+
+      .pipe(
+        webpack({
+          mode: "development",
+          output: {
+            filename: "script.js",
+          },
+          watch: false,
+        })
+      )
+
+      .pipe(
+        babel({
+          presets: ["@babel/preset-env"],
+        })
+      )
+      .pipe(terser())
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest(dist))
+      // .pipe(browsersync.stream());
+      .on("end", browsersync.reload)
+  );
+});
+
+gulp.task("copy-assets", () => {
+  return gulp
+    .src(["source/assets/**/*.*"])
+    .pipe(gulp.dest(dist + "/assets"))
+    .pipe(
+      browsersync.stream({
+        once: true,
+      })
+    );
+});
+
+gulp.task("del", () => {
+  return del("./dist/");
+});
 
 // Browsersync Tasks
-function browsersyncServe(cb) {
+
+gulp.task("server", () => {
   browsersync.init({
+    ui: false,
+    notify: false,
     server: {
-      baseDir: ".",
+      baseDir: dist,
     },
   });
-  cb();
-}
+});
 
-function browsersyncReload(cb) {
-  browsersync.reload();
-  cb();
-}
+gulp.task("watch", () => {
+  gulp.watch("source/*.html", gulp.parallel("copy-html"));
+  gulp.watch("source/assets/**/*.*", gulp.parallel("copy-assets"));
+  gulp.watch("source/js/**/*.js", gulp.parallel("js-task"));
+  gulp.watch("source/scss/**/*.scss", gulp.parallel("scss-task"));
+});
 
-// Watch Task
-function watchTask() {
-  watch("*.html", browsersyncReload);
-  watch(
-    ["source/scss/**/*.scss", "source/js/**/*.js"],
-    series(scssTask, jsTask, browsersyncReload)
-  );
-}
+gulp.task(
+  "default",
+  gulp.series(
+    gulp.series("del"),
 
-// Default Gulp task
-exports.default = series(scssTask, jsTask, browsersyncServe, watchTask);
+    gulp.parallel("copy-html", "scss-task", "js-task", "copy-assets"),
+    gulp.parallel("server", "watch")
+  )
+);

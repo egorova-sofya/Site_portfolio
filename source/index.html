@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./dist/style.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <title>Egorova Sofya | Site-portfolio</title>
   </head>
@@ -18,10 +18,10 @@
           </label>
 
           <ul class="nav_list">
-            <li class="nav_item"><a href="#">Главная</a></li>
-            <li class="nav_item"><a href="#">Мои навыки</a></li>
-            <li class="nav_item"><a href="#">Портфолио</a></li>
-            <li class="nav_item"><a href="#">Контакты</a></li>
+            <li class="nav_item"><a href="#home">Главная</a></li>
+            <li class="nav_item"><a href="#skills">Мои навыки</a></li>
+            <li class="nav_item"><a href="#slider">Портфолио</a></li>
+            <li class="nav_item"><a href="#contacts">Контакты</a></li>
           </ul>
         </nav>
         <div class="nav_social-list">
@@ -45,9 +45,8 @@
         </div>
       </div>
     </header>
-    <!-- оберенулв все в main.так что может что-то сломаться -->
     <main>
-      <section class="home">
+      <section class="home" id="home">
         <h1 class="visually-hidden">Сайт-портфолио Софьи Егоровой</h1>
         <div class="home_img"></div>
 
@@ -67,7 +66,7 @@
         <a href="#skills"
           ><img
             class="arrow arrow--down"
-            src="./source/img/arrow.svg"
+            src="./assets/img/arrow.svg"
             alt="вниз"
             width="77"
             height="106"
@@ -105,57 +104,51 @@
         </dl>
       </section>
 
-      <section class="slider">
+      <section class="slider" id="slider">
         <h2 class="title slider_title">Портфолио</h2>
-        <div class="slider_wrapper">
+        <div class="slider_container">
           <button class="slider_button slider_button--left" type="button">
-            <img
-              src="./source/img/left.svg"
-              alt="листать влево"
-              width="74"
-              height="106"
-            />
+            <img src="./assets/img/left.svg" alt="листать влево" />
           </button>
+          <div class="slider_item">
+            <a href="#">
+              <div class="slide_skills--wrapper">
+                <ul class="slider_skills-list">
+                  <li class="slider_skills-item">React</li>
+                  <li class="slider_skills-item">Gulp</li>
+                  <li class="slider_skills-item">Wepack</li>
+                </ul>
+              </div>
 
-          <div class="slider_container">
-            <div class="slider_item">
-              <a href="#"
-                ><img
-                  class="slider_img"
-                  src="./source/img/portfolio-1.png"
-                  alt="скриншот начальной страницы сайта по доставке еды"
-              /></a>
-            </div>
-            <div class="slider_item">
-              <a href="#"
-                ><img
-                  class="slider_img"
-                  src="./source/img/creating-process.svg"
-                  alt="скриншот начальной страницы сайта по доставке еды"
-              /></a>
-            </div>
-            <!-- <div class="slider_item">
-            <a href="#"
-              ><img
+              <img
                 class="slider_img"
-                src="./source/img/portfolio-1.png"
+                src="./assets/img/portfolio-1.png"
+                alt="скриншот начальной страницы сайта по доставке еды"
+              />
+            </a>
+          </div>
+          <div class="slider_item">
+            <a href="#">
+              <div class="slide_skills--wrapper">
+                <ul class="slider_skills-list">
+                  <li class="slider_skills-item">
+                    Скоро здесь появятся <br />новые проекты
+                  </li>
+                </ul>
+              </div>
+              <img
+                class="slider_img"
+                src="./assets/img/creating-process.svg"
                 alt="скриншот начальной страницы сайта по доставке еды"
             /></a>
-          </div> -->
           </div>
-
           <button class="slider_button slider_button--right" type="button">
-            <img
-              src="./source/img/right.svg"
-              alt="листать вправо"
-              width="74"
-              height="106"
-            />
+            <img src="./assets/img/right.svg" alt="листать вправо" />
           </button>
         </div>
       </section>
 
-      <section class="contacts">
+      <section class="contacts" id="contacts">
         <div>
           <h2 class="title contacts_title">Контакты</h2>
           <p class="contacts_description">
@@ -163,13 +156,15 @@
             постоянное информационно-пропаС другой стороны постоянное
           </p>
         </div>
-        <form class="contacts_form" action="GET">
+        <form class="contacts_form" action="POST">
           <label class="visually-hidden" for="name">Имя</label>
           <input
             class="contacts_text-field contacts_text-field--input"
             type="text"
             id="name"
             placeholder="Имя"
+            name="user_name"
+            required
           />
           <label class="visually-hidden" for="email">E-mai</label>
           <input
@@ -177,6 +172,8 @@
             type="email"
             id="email"
             placeholder="E-mai"
+            name="user_email"
+            required
           />
           <label class="visually-hidden" for="message">Сообщение</label>
           <textarea
@@ -187,7 +184,9 @@
             rows="10"
             placeholder="Сообщение"
           ></textarea>
-          <button class="button contacts_button">Отправить</button>
+          <button type="submit" class="button contacts_button">
+            Отправить
+          </button>
         </form>
       </section>
     </main>
@@ -216,6 +215,6 @@
         </div>
       </div>
     </footer>
-    <script src="./source/js/script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

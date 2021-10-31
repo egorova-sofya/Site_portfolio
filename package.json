@@ -7,17 +7,31 @@
   },
   "author": "",
   "license": "ISC",
+  "description": "",
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ],
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-sass": "4.1.0",
-    "sass": "^1.42.1"
-  },
-  "description": "",
-  "dependencies": {
+    "sass": "^1.42.1",
+    "autoprefixer": "^10.4.0",
     "cssnano": "^5.0.8",
+    "del": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-postcss": "^9.0.1",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
     "postcss": "^8.3.8"
+  },
+  "dependencies": {
+    "core-js": "^3.19.0",
+    "webpack": "^5.60.0",
+    "webpack-stream": "^7.0.0"
   }
 }

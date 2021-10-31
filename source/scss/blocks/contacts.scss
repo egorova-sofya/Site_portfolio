@@ -4,16 +4,25 @@
   display: grid;
   grid-template-rows: 30% auto;
   padding: 0 30px;
-  padding-bottom: 10rem;
+  padding-bottom: 100px;
+  @media screen and (max-width: 960px) {
+    padding: 0 20px;
+    padding-bottom: 30px;
+  }
 }
 
 .contacts_title {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 32px;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 24px;
+  }
+  @include indent;
 }
 
 .contacts_description {
   margin: 0 auto;
+  margin-bottom: 24px;
 
   max-width: 400px;
   @media screen and (max-width: 960px) {
@@ -22,6 +31,7 @@
 }
 
 .contacts_form {
+  position: relative;
   min-width: 500px;
   margin: auto;
   display: flex;
@@ -59,4 +69,12 @@
 
 .contacts_button {
   width: 100%;
+
+  &:disabled {
+    opacity: 0.5;
+    &:hover {
+      transform: none;
+      transition: none;
+    }
+  }
 }
