@@ -48,19 +48,33 @@
     <main>
       <section class="home" id="home">
         <h1 class="visually-hidden">Сайт-портфолио Софьи Егоровой</h1>
-        <div class="home_img"></div>
+        <div class="home_img">
+          <object
+            class="home_img--bg"
+            type="image/svg+xml"
+            data="assets/img/bg.svg"
+          >
+            <img
+              src="assets/img/bg.svg"
+              width="200"
+              height="200"
+              alt="image format png"
+            />
+          </object>
+        </div>
 
         <div class="home_text">
           <h2 class="title home_title">Софья Егорова</h2>
           <p class="home_description">
-            С другой стороны постоянное информационно-пропаС другой стороны
-            постоянное информационно-пропаС другой стороны постоянное
-            информационно-пропаС другой стороны постоянное информационно-пропаС
-            другой стороны постоянное информационно-пропаС другой стороны
-            постоянное информационно-пропаС другой стороны постоянное
-            информационно-пропа
+            Привет! Я Соня – Junior Frontend разработчик. Занимаюсь созданием
+            дизайна сайтов, версткой, разработкой SPA приложений. Мне нравится
+            изучать новые технологии и внедрять их в свои проекты. Я
+            ответственно подхожу к работе и всегда готова подтянуть недостающие
+            знания для достижения качественного результата.
           </p>
-          <button class="button home_button" type="button">Связаться</button>
+          <div class="home_button--wrapper">
+            <a class="button home_button" href="#contacts">Связаться</a>
+          </div>
         </div>
 
         <a href="#skills"
@@ -76,8 +90,9 @@
       <section class="skills" id="skills">
         <h2 class="title skills_title">Мои навыки</h2>
         <p class="skills_description">
-          С другой стороны постоянное информационно-пропаС другой стороны
-          постоянное информационно-пропаС другой стороны постоянное
+          Я постоянно изучаю новые технологии. Но в тоже время я не забрасываю
+          основы. Для меня основными технологиями в работе являются HTML, CSS и
+          JavaScript также в последнее время активно изучаю ReactJS
         </p>
 
         <dl class="skills_list">
@@ -93,13 +108,13 @@
           <dd class="skills_level">
             <div class="skill_percents" style="width: 40%">40%</div>
           </dd>
-          <dt class="skill_text">React</dt>
-          <dd class="skills_level">
-            <div class="skill_percents" style="width: 40%">40%</div>
-          </dd>
           <dt class="skill_text">Git</dt>
           <dd class="skills_level">
             <div class="skill_percents" style="width: 80%">80%</div>
+          </dd>
+          <dt class="skill_text">React</dt>
+          <dd class="skills_level">
+            <div class="skill_percents" style="width: 40%">40%</div>
           </dd>
         </dl>
       </section>
@@ -152,27 +167,18 @@
         <div>
           <h2 class="title contacts_title">Контакты</h2>
           <p class="contacts_description">
-            С другой стороны постоянное информационно-пропаС другой стороны
-            постоянное информационно-пропаС другой стороны постоянное
+            Чтобы связаться со мной заполните контактную форму. Также меня можно
+            найти на hh.ru, LinkedIn или Twitter
           </p>
         </div>
-        <form class="contacts_form" action="POST">
-          <label class="visually-hidden" for="name">Имя</label>
-          <input
-            class="contacts_text-field contacts_text-field--input"
-            type="text"
-            id="name"
-            placeholder="Имя"
-            name="user_name"
-            required
-          />
+        <form class="contacts_form" action="assets/server.php" method="POST">
           <label class="visually-hidden" for="email">E-mai</label>
           <input
             class="contacts_text-field contacts_text-field--input"
             type="email"
             id="email"
             placeholder="E-mai"
-            name="user_email"
+            name="email"
             required
           />
           <label class="visually-hidden" for="message">Сообщение</label>

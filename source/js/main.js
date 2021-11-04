@@ -7,5 +7,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
   slider(".slider_item", ".slider_button--left", ".slider_button--right");
 
-  form(state);
+  // form(state);
 });

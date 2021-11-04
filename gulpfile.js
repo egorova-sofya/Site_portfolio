@@ -16,8 +16,8 @@ const browsersync = require("browser-sync").create();
 const sourcemaps = require("gulp-sourcemaps");
 const del = require("del");
 
-const dist = "./dist/";
-// const dist = "C:/OpenServer/domains/test";
+// const dist = "./dist/";
+const dist = "C:/OpenServer/domains/test";
 
 gulp.task("copy-html", () => {
   return gulp
@@ -88,6 +88,7 @@ gulp.task("copy-assets", () => {
 });
 
 gulp.task("del", () => {
+  // return del("./dist/");
   return del("./dist/");
 });
 

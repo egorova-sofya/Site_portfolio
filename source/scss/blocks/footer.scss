@@ -1,11 +1,15 @@
 .footer {
   background-color: $primary;
   color: #fff;
+  width: 100%;
 }
 
 .footer_wrapper {
   max-width: 1170px;
   margin: 0 auto;
+  @media screen and (max-width: 480px) {
+    min-width: 280px;
+  }
 }
 
 .footer_social-list {

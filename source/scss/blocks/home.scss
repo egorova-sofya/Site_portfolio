@@ -9,7 +9,8 @@
 
   @media screen and (max-width: 960px) {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    padding: 0;
+
     gap: 76px;
   }
   @media screen and (max-width: 480px) {
@@ -23,10 +24,10 @@
   width: 600px;
   margin: auto auto;
 
-  background: url("./assets/img/bg.svg"), url("./assets/img/small_photo2.png");
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100%, 50%;
-  background-position: center, center;
+  background: url("./assets/img/small_photo2.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
 
   @media screen and (max-width: 960px) {
     height: 450px;
@@ -34,22 +35,53 @@
   }
 
   @media screen and (max-width: 480px) {
-    height: 350px;
-    width: 350px;
+    height: 320px;
+    width: 320px;
+  }
+}
+
+.home_img--bg {
+  height: 600px;
+  width: 600px;
+  @media screen and (max-width: 960px) {
+    height: 450px;
+    width: 450px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 320px;
+    width: 320px;
   }
 }
 
 .home_text {
   margin: auto 0;
+  padding: 0 20px;
 }
 
 .home_title {
   margin-bottom: 44px;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 960px) {
+    text-align: center;
     margin-bottom: 24px;
   }
 }
 
 .home_description {
   margin-bottom: 32px;
+}
+.home_button--wrapper {
+  @media screen and (max-width: 960px) {
+    text-align: center;
+  }
+}
+.home .home_button {
+  display: inline-block;
+
+  @media screen and (max-width: 960px) {
+    width: 40%;
+  }
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
