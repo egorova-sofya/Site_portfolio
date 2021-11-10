@@ -11,7 +11,7 @@ $text_color: #30135a;
     content: "";
     height: 100px;
     @media screen and (max-width: 960px) {
-      display: none;
+      height: 30px;
     }
   }
 }

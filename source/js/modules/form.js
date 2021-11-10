@@ -4,8 +4,6 @@ const form = (state) => {
     textarea = document.querySelector("textarea"),
     submitBtn = document.querySelector(".contacts_button");
 
-  // checkNumInputs('input[name="user_phone"]');
-
   const message = {
     loading: "url(./assets/img/spinner.svg)",
     success: "Спасибо! Я рассмотрю ваше предложение",

@@ -11,8 +11,14 @@
 .socials-item {
   width: 32px;
   height: 32px;
-  cursor: pointer;
+  // cursor: pointer;
   background-position: 50% 50%;
+}
+
+.social-button {
+  display: block;
+  width: 32px;
+  height: 32px;
 }
 
 .social-vk {
@@ -25,4 +31,12 @@
 
 .social-linkedin {
   background: no-repeat url("./assets/img/linkedin.svg");
+}
+
+.social-hh {
+  background: no-repeat url("./assets/img/hh.svg");
+}
+
+.social-github {
+  background: no-repeat url("./assets/img/github.svg");
 }
